@@ -29,7 +29,7 @@ public class PrincipalController implements ActionListener {
     }
     
     public void start(){
-        ver_obras();
+        verObras();
         principal.btnEnviar.setActionCommand("Enviar Obra");
         principal.btnEnviar.addActionListener(this);
         principal.btnXD.setActionCommand("Contraseña 1");
@@ -43,13 +43,13 @@ public class PrincipalController implements ActionListener {
         String command = e.getActionCommand();
         switch(command){
             case "Enviar Obra":
-                enviar_obras();
+                enviarObras();
                 break;
             case "Contraseña 1":
-                contraseña_1();
+                imprimirContraseñaV1();
                 break;
             case "Contraseña 2":
-                contraseña_2();
+                imprimirContraseñaV2();
                 break;
         }
     }
@@ -57,7 +57,7 @@ public class PrincipalController implements ActionListener {
     /**
      * Muestra la lista de obras de la base de datos "constructora-i" en un Jlist :D
      */
-    private void ver_obras(){        
+    private void verObras(){        
         principal.txtObras.append("Obras:");
         principal.txtObras.append(System.getProperty("line.separator"));
         Obra_Condominio.name().stream().forEach((obra) -> {
@@ -69,7 +69,7 @@ public class PrincipalController implements ActionListener {
     /**
      * Envia las obras a que se recojan de un JList a un JTextArea.
      */
-    private void enviar_obras(){
+    private void enviarObras(){
         List<Object> re_obras = principal.lstObra.getSelectedValuesList();
         re_obras.stream().map((obra) -> {
             principal.txtObras.append(obra + "");
@@ -87,7 +87,7 @@ public class PrincipalController implements ActionListener {
     /**
      * Imprime la contraseña usando el método "getPassword" transformado a String.
      */
-    private void contraseña_1(){
+    private void imprimirContraseñaV1(){
         String password = new String(principal.txtContraseña.getPassword());
         principal.txtReContraseña.setText(password);
     }
@@ -96,7 +96,7 @@ public class PrincipalController implements ActionListener {
      * Imprime la contraseña usando el método "getPassword" recorriendo el
      * arreglo char devuelto y luego transformando el mismo a String
      */
-    private void contraseña_2(){
+    private void imprimirContraseñaV2(){
         char[] password = principal.txtContraseña.getPassword();
         String new_password = "";
         for(int i=0;i<password.length;i++){
