@@ -60,9 +60,9 @@ public class PrincipalController implements ActionListener {
     private void ver_obras(){        
         principal.txtObras.append("Obras:");
         principal.txtObras.append(System.getProperty("line.separator"));
-        for(Obra_Condominio obra : Obra_Condominio.name()){
+        Obra_Condominio.name().stream().forEach((obra) -> {
             principal.list_obras.addElement(obra.getNombre());
-        }
+        });
         principal.lstObra.setModel(principal.list_obras);
     }
 
@@ -71,10 +71,12 @@ public class PrincipalController implements ActionListener {
      */
     private void enviar_obras(){
         List<Object> re_obras = principal.lstObra.getSelectedValuesList();
-        for(Object obra : re_obras){
+        re_obras.stream().map((obra) -> {
             principal.txtObras.append(obra + "");
+            return obra;
+        }).forEach((_item) -> {
             principal.txtObras.append(System.getProperty("line.separator"));
-        }
+        });
         // Usando el método obsoleto XD
         Object[] x = principal.lstObra.getSelectedValues();
         for(Object obra : x){
