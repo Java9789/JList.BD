@@ -55,7 +55,8 @@ public class PrincipalController implements ActionListener {
     }
 
     /**
-     * Muestra la lista de obras de la base de datos "constructora-i" en un Jlist :D
+     * Muestra la lista de obras de la base de datos "constructora-i" en 
+     * un Jlist :D
      */
     private void verObras(){        
         principal.txtObras.append("Obras:");
@@ -70,8 +71,8 @@ public class PrincipalController implements ActionListener {
      * Envia las obras a que se recojan de un JList a un JTextArea.
      */
     private void enviarObras(){
-        List<Object> re_obras = principal.lstObra.getSelectedValuesList();
-        re_obras.stream().map((obra) -> {
+        List<Object> reObras = principal.lstObra.getSelectedValuesList();
+        reObras.stream().map((obra) -> {
             principal.txtObras.append(obra + "");
             return obra;
         }).forEach((_item) -> {
