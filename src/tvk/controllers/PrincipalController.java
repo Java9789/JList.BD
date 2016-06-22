@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import org.jvnet.substance.skin.SubstanceRavenGraphiteGlassLookAndFeel;
-import tvk.models.Obra_Condominio;
+import tvk.models.ObraCondominio;
 import tvk.views.Principal;
 
 public class PrincipalController implements ActionListener {
@@ -61,7 +61,7 @@ public class PrincipalController implements ActionListener {
     private void verObras(){        
         principal.txtObras.append("Obras:");
         principal.txtObras.append(System.getProperty("line.separator"));
-        Obra_Condominio.name().stream().forEach((obra) -> {
+        ObraCondominio.name().stream().forEach((obra) -> {
             principal.list_obras.addElement(obra.getNombre());
         });
         principal.lstObra.setModel(principal.list_obras);

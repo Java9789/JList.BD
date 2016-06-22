@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Obra_Condominio {
+public class ObraCondominio {
     // <editor-fold defaultstate="collapsed" desc="Attributes">
     private int id_obra_condominio;
     private Distrito distrito;
@@ -25,13 +25,13 @@ public class Obra_Condominio {
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Constructors">
-    public Obra_Condominio(){}
+    public ObraCondominio(){}
 
-    public Obra_Condominio(int id_obra_condominio){
+    public ObraCondominio(int id_obra_condominio){
         this.id_obra_condominio = id_obra_condominio;
     }
 
-    public Obra_Condominio(int id_obra_condominio, Distrito distrito, String nombre, double costo, String incidencias, String imagen, String direccion, int n_estacionamientos, double proceso, String descripcion_proceso, int estado, Date fecha_inicio, Date fecha_final){
+    public ObraCondominio(int id_obra_condominio, Distrito distrito, String nombre, double costo, String incidencias, String imagen, String direccion, int n_estacionamientos, double proceso, String descripcion_proceso, int estado, Date fecha_inicio, Date fecha_final){
         this.id_obra_condominio = id_obra_condominio;
         this.distrito = distrito;
         this.nombre = nombre;
@@ -158,13 +158,13 @@ public class Obra_Condominio {
      * Select nombre from obra_condominio
      * @return 
      */
-    public static List<Obra_Condominio> name(){
-        List<Obra_Condominio> obra = new ArrayList<>();
+    public static List<ObraCondominio> name(){
+        List<ObraCondominio> obra = new ArrayList<>();
         try {
             PreparedStatement ps = Conexion.getConnection().prepareStatement("select nombre from obra_condominio");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                Obra_Condominio ob = new Obra_Condominio();
+                ObraCondominio ob = new ObraCondominio();
                 ob.setNombre(rs.getString(1));
                 obra.add(ob);
             }
